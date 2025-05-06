@@ -733,6 +733,13 @@ class NicoRosMotion:
     def _palm_sensor_publisher(self):
         r = rospy.Rate(10)  # 10hz
         while not rospy.is_shutdown():
+            #if hasattr(self.robot,"getPalmSensorReading"): #add
+            #    if hasattr(self,"_leftHand"):#add
+            #        left=self.robot.getPalmSensorReading("l")#add
+            #        self._palm_publisher_left.publish(left)#add
+            #    if hasattr(self,"_rightHand"):#add
+            #        right=self.robot.getPalmSensorReading("r")#add
+            #        self._palm_publisher_right.publish(right) #add
             left = self.robot.getPalmSensorReading("l")
             right = self.robot.getPalmSensorReading("r")
             self._palm_publisher_left.publish(left)
