@@ -24,11 +24,11 @@ class NicoRosTTS(object):
         :type port: str
         """
         rospy.init_node("text_to_speech", anonymous=True)
+        rospy.loginfo(f"Using cache dir: {cache_dir}")
         self.tts = TextToSpeech(cache_dir)
         rospy.Service("nico/text_to_speech/say", srv.SayText, self._ROSPY_speak)
         rospy.loginfo("TTS started successfully")
         rospy.spin()
-
     def _ROSPY_speak(self, request):
         """
         Callback handle for :meth:`nicoaudio.AudioPlayer.position`
@@ -59,5 +59,4 @@ if __name__ == "__main__":
         help=("The directory where generated soundfiles are stored for reuse"),
     )
     args = parser.parse_known_args()[0]
-
     NicoRosTTS(args.cache_dir)
