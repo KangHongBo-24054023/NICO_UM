@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Gäde"
+  given-names: "Connor"
+- family-names: "Özdemir"
+  given-names: "Ozan"
+title: "ELMiRA: Embodying Language Models in Robot Action"
+version: 1.0.2
+date-released: 2024-09-11
+url: "https://github.com/knowledgetechnologyuhh/ELMiRA"
+preferred-citation:
+  type: conference-paper
+  title: "Embodying Language Models in Robot Action"
+  authors:
+  - family-names: "G{\\\"a}de"
+    given-names: "Connor"
+  - family-names: "{\\\"O}zdemir"
+    given-names: "Ozan"
+  - family-names: "Weber"
+    given-names: "Cornelius"
+  - family-names: "Wermter"
+    given-names: "Stefan"
+  collection-title: "Proceedings of the 32nd European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning (ESANN 2024)"
+  start: 625
+  end: 630
+  year: 2024
+  month: 10
+  publisher: "Ciaco - i6doc.com"
+  doi: 10.14428/esann/2024.es2024-143
