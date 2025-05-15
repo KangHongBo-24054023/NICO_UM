@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="work in progress ELMiRA website">
+  <meta name="keywords"
+    content="ELMiRA, large language models, multimodality, human-robot interaction, object manipulation ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELMiRA: Embodying Language Models in Robot Action</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/uhh-logo-favicon1.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="http://knowledge-technology.info">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/publications.html">
+              Full Publication List
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ELMiRA: Embodying Language Models in Robot Action</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/people/gaede.html">Connor
+                  Gäde</a><!--sup>1</sup-->,
+              </span>
+              <span class="author-block">
+                <a href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/people/oezdemir.html">Ozan
+                  Özdemir</a><!--sup>1</sup-->,
+              </span>
+              <span class="author-block">
+                <a href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/people/weber.html">Cornelius
+                  Weber</a><!--sup>1</sup-->,
+              </span>
+              <span class="author-block">
+                <a href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/people/wermter.html">Stefan
+                  Wermter</a><!--sup>1</sup-->
+              </span>
+              <!--- span class="author-block">
+                <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span --->
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><!--sup>1</sup-->University of Hamburg - Dept. of Informatics</span>
+            </div>
+
+            <div>
+              <a href="http://knowledge-technology.info">
+                <img src="./static/images/KT_Logo_White.png" alt="Knowledge Technology" width="177" height="177">
+              </a>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://doi.org/10.14428/esann/2024.ES2024-143"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!--span class="link-block">
+                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span-->
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1SY9m8u7wehFlcVcvpHbIyhDzDbVGKiEq/view?usp=sharing"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/knowledgetechnologyuhh/ELMiRA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Large language models (LLMs) have achieved significant recent success in deep learning. The remaining
+              challenges in robotics and human-robot interaction (HRI) still need to be tackled but off-the-shelf
+              pre-trained LLMs with advanced language and reasoning capabilities can provide solutions to problems in
+              the field. In this work, we realise an open-ended HRI scenario involving a humanoid robot communicating
+              with a human while performing robotic object manipulation tasks at a table. To this end, we combine
+              pre-trained general models of speech recognition, vision-language, text-to-speech and open-world object
+              detection with robot-specific models of visuospatial coordinate transfer and inverse kinematics, as well
+              as a task-specific motion model. Our experiments reveal robust performance by the language model in
+              accurately selecting the task mode and by the whole model in correctly executing actions during open-ended
+              dialogue. Our innovative architecture enables a seamless integration of open-ended dialogue, scene
+              description, open-world object detection and action execution. It is promising as a modular solution for
+              diverse robotic platforms and HRI scenarios.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Supplementary Video</h2>
+          <div class="publication-video">
+            <iframe src="https://drive.google.com/file/d/1SY9m8u7wehFlcVcvpHbIyhDzDbVGKiEq/preview" width="640"
+              height="480" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@InProceedings{gade2024elmira, 
+        author =  {G{\"a}de, Connor and {\"O}zdemir, Ozan and Weber, Cornelius and Wermter, Stefan},  
+        title = {Embodying language models in robot action}, 
+        booktitle = {Proceedings of the 32nd European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning (ESANN 2024)},
+        journal = {},
+        editors = {},
+        number = {},
+        volume = {},
+        pages = {625--630},
+        year = {2024},
+        month = {Oct},
+        publisher = {Ciaco - i6doc.com},
+        doi = {10.14428/esann/2024.es2024-143}, 
+     }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://github.com/knowledgetechnologyuhh" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              The template for this website was adapted from the <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies website</a> created by <a
+                href="https://keunhong.com">Keunhong Park</a>, which is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
