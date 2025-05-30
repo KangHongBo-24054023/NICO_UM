@@ -81,6 +81,7 @@ class ActionTrajectory(smach.State):
             output_keys=[
                 "planning_group",
                 "poses",
+                "system_message"
             ],
         )
 
@@ -98,6 +99,7 @@ class ActionTrajectory(smach.State):
             else:
                 target_pose.orientation = Quaternion(0.7071068, 0, 0, 0.7071068)
             target_poses.append(target_pose)
+            userdata.system_message = f"Action '{userdata.action_type}' trajectory planned."
         elif userdata.action_type == "show":
             target_pose = Pose()
             target_pose.position = Point(
@@ -108,6 +110,8 @@ class ActionTrajectory(smach.State):
             else:
                 target_pose.orientation = Quaternion(1.0, 0, 0, 0.0)
             target_poses.append(target_pose)
+            userdata.system_message = f"Action '{userdata.action_type}' trajectory planned."
+
         elif userdata.action_type == "push":
             for offset in [
                 (-0.04, 0.0, 0.0),
@@ -126,6 +130,8 @@ class ActionTrajectory(smach.State):
                 else:
                     target_pose.orientation = Quaternion(0.7071068, 0, 0, 0.7071068)
                 target_poses.append(target_pose)
+                userdata.system_message = f"Action '{userdata.action_type}' trajectory planned."
+
         elif userdata.action_type == "push_left":
             # 08, 06
             for offset in [
@@ -145,6 +151,8 @@ class ActionTrajectory(smach.State):
                 else:
                     target_pose.orientation = Quaternion(0.7071068, 0, 0, 0.7071068)
                 target_poses.append(target_pose)
+            userdata.system_message = f"Action '{userdata.action_type}' trajectory planned."
+
         elif userdata.action_type == "push_right":
             for offset in [
                 (0.04, 0.10, 0.10),
@@ -163,6 +171,8 @@ class ActionTrajectory(smach.State):
                 else:
                     target_pose.orientation = Quaternion(0.7071068, 0, 0, 0.7071068)
                 target_poses.append(target_pose)
+            userdata.system_message = f"Action '{userdata.action_type}' trajectory planned."
+
         else:
             rospy.loginfo(f"Action '{userdata.action_type}' not defined")
             userdata.system_message(

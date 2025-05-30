@@ -27,6 +27,8 @@ class JointTrajectoryIterator(smach.Iterator):
             ],
             output_keys=[],
             it=lambda: range(0, len(self.userdata.joint_trajectory)),
+            #it=lambda ud: range(0, ud.trajectory_length),
+
             it_label="trajectory_step",
             exhausted_outcome="succeeded",
         )
