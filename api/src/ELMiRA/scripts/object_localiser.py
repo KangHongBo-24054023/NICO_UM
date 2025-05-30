@@ -80,7 +80,7 @@ class OWLv2(nn.Module):
 
     def plot_predictions(self, image, text_queries, scores, boxes, labels):
         draw = ImageDraw.Draw(image)
-        font = ImageFont.truetype("arial", 24)
+        font = ImageFont.truetype("/usr/share/fonts/truetype/msttcorefonts/arial.ttf", 24)
         label_offset = 5
         label_padding = 5
 

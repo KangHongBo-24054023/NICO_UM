@@ -6,7 +6,7 @@ from elmira.msg import JointPosition
 from os.path import dirname, abspath, join, pardir
 import rospy
 import torch
-
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class KinematicsServer:
     def __init__(self):
@@ -55,8 +55,8 @@ class KinematicsServer:
             pos = pose.position
             quat = pose.orientation
             ik_result.position = solver.inverse_kinematics(
-                torch.tensor([pos.x, pos.y, pos.z]).to("cuda"),
-                torch.tensor([quat.w, quat.x, quat.y, quat.z]).to("cuda"),
+                torch.tensor([pos.x, pos.y, pos.z]).to(device),
+                torch.tensor([quat.w, quat.x, quat.y, quat.z]).to(device),
                 initial_joints=initial_joints,
                 max_steps=100,
             )
