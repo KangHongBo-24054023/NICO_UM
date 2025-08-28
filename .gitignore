@@ -50,3 +50,15 @@ api/examples/nicoemotionrecognition/tts_storage
 
 # log file
 *.log
+# Python – ignore anywhere in tree
+**/site-packages/
+**/__pycache__/
+**/*.py[cod]
+**/*.so
+**/*.dylib
+**/*.pyd
+**/*.egg-info/
+**/.venv/
+**/venv/
+**/env/
+**/ENV/
