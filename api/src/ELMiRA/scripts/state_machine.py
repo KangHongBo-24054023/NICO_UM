@@ -51,7 +51,9 @@ def main():
                 "l_wrist_z",
                 "l_wrist_x",
             ],
-            "positions": [0.157, 0.0, 1.57, 1.57, 1.39, 0.0],
+            "positions": [0.0, 0.0, 0.0, 1.57, 1.39, 0.0],
+            #trying[0.157, 0.0, 0.0, 1.57, 1.39, 0.0],
+            #ori[0.157, 0.0, 1.57, 1.57, 1.39, 0.0]
         },
         "r_arm": {
             "names": [
@@ -62,14 +64,14 @@ def main():
                 "r_wrist_z",
                 "r_wrist_x",
             ],
-            "positions": [-0.157, 0.0, -1.57, -1.57, -1.39, 0.0],
+            "positions": [0.0, 0.0, 0.0, -1.57, -1.39, 0.0],
         },
         "head": {
             "names": [
                 "head_z",
                 "head_y",
             ],
-            "positions": [0.0, 0.0],  # [0.0, 0.8203],
+            "positions": [0.0, 0.4],  # [0.0, 0.8203],
         },
     }
     sm.userdata.motion_safe_names_left = [
@@ -91,8 +93,8 @@ def main():
     ]
     sm.userdata.motion_safe_pose_right = [-0.157, 0.0, -0.8203, -1.57, -1.39, 0.0]
     sm.userdata.motion_look_down_names = ["head_z", "head_y"]
-    sm.userdata.motion_look_down_positions = [0.0, 0.8203]
-    sm.userdata.table_z = 0.68
+    sm.userdata.motion_look_down_positions = [0.0, 0.5]
+    sm.userdata.table_z = 0.56
     # TTS
     sm.userdata.tts_language = "en"
     sm.userdata.tts_pitch = 0.0

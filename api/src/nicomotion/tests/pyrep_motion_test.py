@@ -6,6 +6,10 @@ from nicomotion.Motion import Motion
 
 class PyrepTest(unittest.TestCase):
     def setUp(self):
+        # Force PyRep and Qt to run headless
+        os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = "/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms"
+        os.environ["QT_QPA_PLATFORM"] = "offscreen"
+        os.environ["DISPLAY"] = ""
         # ensure CoppeliaSim environment is set
         assert "COPPELIASIM_ROOT" in os.environ
         assert isfile("{}/coppeliaSim.sh".format(os.environ["COPPELIASIM_ROOT"]))

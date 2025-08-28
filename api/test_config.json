@@ -1,0 +1,87 @@
+{
+    "controllers": {
+        "all_controller": {
+            "attached_motors": ["head", "arms"],
+            "port": "auto",
+            "sync_read": false
+        }
+    },
+    "motorgroups": {
+        "head": ["head_z", "head_y"],
+        "arms": ["l_arm", "r_arm"],
+        "l_arm": ["l_shoulder_y", "l_shoulder_z", "l_arm_x", "l_elbow_y"],
+        "r_arm": ["r_shoulder_y", "r_shoulder_z", "r_arm_x", "r_elbow_y"]
+    },
+    "motors": {
+        "head_y": {
+            "angle_limit": [-89, 79],
+            "id": 20,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        },
+        "head_z": {
+            "angle_limit": [-179, 180],
+            "id": 19,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        },
+        "l_arm_x": {
+            "angle_limit": [-75, 140],
+            "id": 4,
+            "offset": 32.0,
+            "orientation": "indirect",
+            "type": "MX-64"
+        },
+        "l_elbow_y": {
+            "angle_limit": [-100, 100],
+            "id": 6,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        },
+        "l_shoulder_y": {
+            "angle_limit": [-179, 180],
+            "id": 2,
+            "offset": 0.0,
+            "orientation": "indirect",
+            "type": "MX-64"
+        },
+        "l_shoulder_z": {
+            "angle_limit": [-125, 100],
+            "id": 21,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        },
+        "r_arm_x": {
+            "angle_limit": [-140, 75],
+            "id": 3,
+            "offset": -32,
+            "orientation": "indirect",
+            "type": "MX-64"
+        },
+        "r_elbow_y": {
+            "angle_limit": [-100, 100],
+            "id": 5,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        },
+        "r_shoulder_y": {
+            "angle_limit": [-180, 179],
+            "id": 1,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        },
+        "r_shoulder_z": {
+            "angle_limit": [-100, 125],
+            "id": 22,
+            "offset": 0.0,
+            "orientation": "direct",
+            "type": "MX-64"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- args so you can flip real FVLM later -->
+  <arg name="fake_mode" default="true"/>
+  <arg name="fvlm_repo_path" default=""/>
+  <arg name="fvlm_model" default="resnet_50"/>
+  <arg name="score_threshold" default="0.20"/>
+  <arg name="test_image" default="$(env HOME)/Downloads/fruits.jpg"/>
+
+  <!-- camera stub: publishes to /nico/vision/right -->
+  <node pkg="elmira" type="pub_test_image.py" name="right_cam_pub" output="screen" args="$(arg test_image)"/>
+
+  <!-- FVLM detector (drop-in replacement for OWLv2) -->
+  <node name="object_localiser" pkg="elmira" type="fvlm_server.py" required="false" output="screen">
+    <param name="service_name"    value="object_detector"/>
+    <param name="debug_img_topic" value="/owlv2_server/result_image"/>
+    <param name="rgb_topic"       value="/nico/vision/right"/>
+    <param name="score_threshold" value="$(arg score_threshold)"/>
+    <param name="fake_mode"       value="$(arg fake_mode)"/>
+    <param name="fvlm_repo_path"  value="$(arg fvlm_repo_path)"/>
+    <param name="fvlm_model"      value="$(arg fvlm_model)"/>
+    <env name="TF_ENABLE_ONEDNN_OPTS" value="0"/>
+    <env name="TF_NUM_INTRAOP_THREADS" value="2"/>
+    <env name="TF_NUM_INTEROP_THREADS" value="2"/>
+    <env name="OMP_NUM_THREADS" value="2"/>
+  </node>
+
+  <!-- rule-based LLM shim (same services as your GPT4 server) -->
+  <node name="llm_api" pkg="elmira" type="rule_llm_server.py" required="false" output="screen">
+    <param name="object_detector_service" value="object_detector"/>
+    <param name="hotword" value="nico"/>
+  </node>
+</launch>
+

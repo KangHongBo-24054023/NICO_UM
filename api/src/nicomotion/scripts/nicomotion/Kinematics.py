@@ -327,7 +327,7 @@ class Kinematics(object):
             )
         )
         # move motors
-        vel = 0.02
+        vel = 0.15
         self.robot.setAngle(prefix + "_shoulder_z", target_angles[1], vel)
         self.robot.setAngle(prefix + "_shoulder_y", target_angles[2], vel)
         self.robot.setAngle(prefix + "_arm_x", target_angles[3], vel)

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find elmira)/launch/camera.launch"/>
+  <include file="$(find nicoros)/launch/joint_controller.launch"/>
+
+  <node name="object_localiser"
+        pkg="elmira"
+        type="fvlm_server.py"
+        output="screen"
+        respawn="true"
+        launch-prefix="nice -n 10 taskset -c 2-3">
+
+    <!-- Topics & service -->
+    <param name="service_name"        value="object_detector"/>
+    <param name="rgb_topic"           value="/nico/vision/right"/>
+    <param name="debug_img_topic"     value="/owlv2_server/result_image"/>
+
+    <!-- thresholds -->
+    <param name="overlay_min_score"   value="0.05"/>
+    <param name="score_threshold"     value="0.15"/>
+    <param name="keep_top_k"          value="1"/>
+    <param name="fake_mode"           value="false"/>
+
+    <!-- F-VLM assets -->
+    <param name="fvlm_repo_path"      value="/home/hb/google-research/fvlm"/>
+    <param name="fvlm_model"          value="resnet_50"/>
+    <param name="max_num_classes"     value="91"/>
+
+    <!-- detector speed -->
+    <param name="max_input_width"     value="640"/>
+
+    <!-- Save debug overlays -->
+    <param name="save_debug_images"      value="true"/>
+    <param name="save_only_on_detection" value="false"/>
+    <param name="save_dir"               value="/home/hb/elmira_captures"/>
+
+    <!-- Keep TF modest on CPU -->
+    <env name="TF_XLA_FLAGS"             value="--tf_xla_auto_jit=0 --tf_xla_cpu_global_jit=false"/>
+    <env name="TF_ENABLE_ONEDNN_OPTS"    value="0"/>
+    <env name="TF_NUM_INTRAOP_THREADS"   value="1"/>
+    <env name="TF_NUM_INTEROP_THREADS"   value="1"/>
+    <env name="OMP_NUM_THREADS"          value="1"/>
+    <env name="TF_CPP_MIN_LOG_LEVEL"     value="2"/>
+  </node>
+
+  <node name="coordinate_transfer" pkg="elmira" type="coordinate_transfer.py" output="screen"/>
+  <node name="ik_solver"           pkg="elmira" type="ik_solver.py"           output="screen"/>
+
+  <node name="llm_api" pkg="elmira" type="rule_llm_server.py" output="screen">
+    <param name="hotword" value="nico"/>
+    <param name="object_detector_service" value="object_detector"/>
+  </node>
+
+  <node name="text_to_speech" pkg="nicoros" type="TextToSpeech.py" output="screen"/>
+</launch>
+

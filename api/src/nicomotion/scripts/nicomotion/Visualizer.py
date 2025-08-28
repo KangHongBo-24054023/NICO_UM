@@ -7,8 +7,10 @@ from ikpy.utils import geometry
 
 class Visualizer(object):
     """The Visualizer allows to pre-visualize Robot motor angles."""
+    #dirname(abspath(__file__)) + "/urdf/kinematics.urdf")
 
-    def __init__(self, urdf=(dirname(abspath(__file__)) + "/urdf/kinematics.urdf")):
+    def __init__(self, urdf = "/home/hb/NICO-software/urdf/complete.urdf"):
+):
         """
         Allows to visualize and manipulate joint angles of the given urdf
 

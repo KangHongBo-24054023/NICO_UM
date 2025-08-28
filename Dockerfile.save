@@ -1,0 +1,38 @@
+FROM ros:noetic-desktop-full
+ # Install system dependencies
+  RUN apt-get update && apt-get install -y \
+      python3-pip \
+      python3-catkin-tools \
+      git \
+      && rm -rf /var/lib/apt/lists/*
+
+  # Copy the entire project
+  COPY . /NICO-software/
+
+  # Set working directory
+  WORKDIR /NICO-software/api
+
+  # Install exact Python dependencies that work
+  RUN pip3 install \
+      transformers==4.46.3 \
+      markupsafe==2.0.1 \
+      evotorch==0.5.1 \
+      numpy==1.21.6 \
+      torch \
+      torchvision \
+      pillow \
+      opencv-python \
+      rospy \
+      cv-bridge
+
+# Build ROS workspace
+WORKDIR /home/Ni
+RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
+
+# Setup environment
+RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+RUN echo "source /devel/setup.bash" >> ~/.bashrc
+RUN echo "export COPPELIASIM_ROOT=/home/hb/Downloads/CoppeliaSim_Edu_V4_1_0_Ubuntu20_04" >> ~/.bashrc
+
+WORKDIR /
+CMD ["/bin/bash"]
