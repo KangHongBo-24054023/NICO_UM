@@ -15,18 +15,18 @@
     <param name="rgb_topic"           value="/nico/vision/right"/>
     <param name="debug_img_topic"     value="/owlv2_server/result_image"/>
 
-    <!-- thresholds -->
+    <!-- Draw vs return thresholds -->
     <param name="overlay_min_score"   value="0.05"/>
     <param name="score_threshold"     value="0.15"/>
     <param name="keep_top_k"          value="1"/>
     <param name="fake_mode"           value="false"/>
 
-    <!-- F-VLM assets -->
+    <!-- F-VLM model assets -->
     <param name="fvlm_repo_path"      value="/home/hb/google-research/fvlm"/>
     <param name="fvlm_model"          value="resnet_50"/>
     <param name="max_num_classes"     value="91"/>
 
-    <!-- detector speed -->
+    <!-- Speed -->
     <param name="max_input_width"     value="640"/>
 
     <!-- Save debug overlays -->
