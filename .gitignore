@@ -1,77 +1,98 @@
-#python
-__pycache__
-*.pyc
-*.egg-info/
+# -------------------------
+# Python (global)
+# -------------------------
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+**/.venv/
+**/venv/
+**/env/
+**/ENV/
+**/site-packages/
 
-#IDE
-.idea
-.vscode
+# (Optional) compiled extensions — usually don't commit .so/.dylib/.pyd
+**/*.so
+**/*.dylib
+**/*.pyd
 
-#temporary files
+# IDE / editors
+.idea/
+.vscode/
+
+# Temp / OS
 *~
+*.log
 
-#api doc
-api-doc/_build
+# Jupyter / tooling
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
 
-#generated json files
+# -------------------------
+# Project-specific
+# -------------------------
+
+# API docs build
+api-doc/_build/
+
+# Generated json
 json/generated/
 
-# rotation test images
+# Rotation test images
 rotation_images/
 
-# documentation branch folders
+# Documentation branch folders
 _pages/
 _site/
 
-# generated activation script
+# Generated activation script
 api/activate.bash
 
-# catkin generated files
-api/build
+# ROS / Catkin builds & tooling
+api/build/
+api/devel/
+api/build-old/
+api/devel-old/
+api/src/CMakeFiles/
 api/src/CMakeLists.txt
-api/devel
-api/build-old
-api/devel-old
-api/src/CMakeFiles
-api/src/*/build
-api/src/*/dist
+api/src/*/build/
+api/src/*/dist/
 api/src/*/*.egg-info
 */catkin_generated/*
-cv_bridge_build_ws
+cv_bridge_build_ws/
 api/.catkin_tools/
 
-#data files
-api/examples/mixed-modules/touch-sensor-experiments/data
-api/examples/mixed-modules/touch-sensor-experiments/data_old
-api/examples/mixed-modules/touch-sensor-experiments/data_orig
-api/examples/mixed-modules/touch-sensor-experiments/data-very-small-dataset
+# Data files (examples output)
+api/examples/mixed-modules/touch-sensor-experiments/data*
 api/examples/mixed-modules/touch-sensor-experiments/arm_data
 api/examples/nicoemotionrecognition/tts_storage
 
-# log file
-*.log
-# Python – ignore anywhere in tree
-**/site-packages/
-**/__pycache__/
-**/*.py[cod]
-**/*.so
-**/*.dylib
-**/*.pyd
-**/*.egg-info/
-**/.venv/
-**/venv/
-**/env/
-**/ENV/
-# Python – ignore anywhere in tree
+# -------------------------
+# Big binaries & archives
+# -------------------------
+# (You committed these once — keep them out going forward)
+api/src/ELMiRA/scripts/.venv/
+api/src/ELMiRA/Miniconda3-*-Linux-*.sh
+nico-working.tar.gz
 
-**/site-packages/
-**/__pycache__/
-**/*.py[cod]
-**/*.so
-**/*.dylib
-**/*.pyd
-**/*.egg-info/
-**/.venv/
-**/venv/
-**/env/
-**/ENV/
+# Generic archives/installers
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.whl
+*.7z
+
+# -------------------------
+# Models/checkpoints (choose 1 approach)
+# -------------------------
+# OPTION A: Ignore (no version control)
+# api/src/ELMiRA/model_checkpoints/
+# *.pb
+# variables.data-*
+
+# OPTION B (recommended): Track via Git LFS instead of ignoring
+#   -> don't add ignore rules above; use `git lfs track` instead
+
